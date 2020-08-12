@@ -62,7 +62,7 @@ function authenticator(req, res, next) {
 
 app.post('/api/login', (req, res) => {
   const { username, password } = req.body;
-  if (username === 'Lambda School' && password === 'i<3Lambd4') {
+  if (username === 'Lambda School' && password === '0000') {
     req.loggedIn = true;
     res.status(200).json({
       payload: token
@@ -93,7 +93,7 @@ app.get('/api/friends/:id', authenticator, (req, res) => {
 app.post('/api/friends', authenticator, (req, res) => {
   const friend = { id: getNextId(), ...req.body };
 
-  friends = [...friends, friend];
+  friends = [friend, ...friends];
 
   res.send(friends);
 });
