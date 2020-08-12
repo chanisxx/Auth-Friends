@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import { Link, Route, Switch } from 'react-router-dom';
 import Login from './components/Login'
@@ -6,6 +6,12 @@ import PrivateRoute from './components/PrivateRoute';
 import FriendsList from './components/FriendsList';
 
 function App() {
+
+  
+  //attempt at making 'error' a state so that login can respond to failed
+  //login with an error message. however not sure how to setError in the 
+  //Private Route, which
+
   return (
     <div className='container'>
       <div className='navbar'>
@@ -29,7 +35,6 @@ function App() {
           <div>
             <p>welcome to the</p>
             <p>friends list app .</p>
-            {/* <p>app.</p> */}
           </div>
           <div className='faces'>
             <i class="far fa-smile"></i>
@@ -37,7 +42,8 @@ function App() {
           </div>
         </h1>
       </Route>
-      <PrivateRoute exact path='/protected' component={FriendsList}/>
+      <PrivateRoute exact path='/protected'
+      component={FriendsList}/>
       </Switch>
       
     </div>

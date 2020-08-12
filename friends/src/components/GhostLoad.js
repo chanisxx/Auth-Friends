@@ -6,24 +6,13 @@ const GhostLoad = () => {
         <div className='f-cont'>
         <div className='ghost-user gradient'>
             <i class="fas fa-circle usr r"></i>
-            <p></p>
-            <p></p>
-            <p></p>
         </div>
         <div className='card-cont'>
         {
             ghostArray.map(el => {
                 return(
-                    <div className='ghost-friend gradient' key={Date.now()}>
-                        <div>
+                    <div className='ghost-friend gradient' key={Math.random(Date.now())}>
                         <i class="fas fa-circle fnd"></i>
-                        </div>
-                        <span className='content'>
-                            <h1 className='friend-h1'></h1>
-                            <p></p>
-                            <p></p>
-                        </span>
-                        
                     </div>
                 )
             })

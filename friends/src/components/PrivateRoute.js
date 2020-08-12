@@ -9,7 +9,6 @@ const PrivateRoute = ({component: Component, ...rest}) => {
                 return <Component />
             }
             console.log('auth failed! redirecting..')
-            // setTimeout(() => {})
             alert('you must log in to continue.')
             return <Redirect to='/sign-in' />
         }}/>

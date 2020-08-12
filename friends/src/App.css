@@ -55,12 +55,16 @@
   width: 45%;
 }
 
+.error-login {
+  color: rgba(255, 0, 0, 0.534);
+}
+
 .input {
   margin: 20px 0;
   border: none;
   border-bottom: 1px solid lightgreen;
+  font-size: 1.05rem;
   outline: none;
-
 }
 
 .home-h {
@@ -113,6 +117,19 @@
   justify-content: space-evenly;
 }
 
+.edit-form {
+  position: absolute;
+  z-index: 1;
+  top: 210px;
+}
+
+.edit {
+  background-color: rgb(255, 255, 255);
+  border: #4d4c4c91 2px solid;
+  padding: 20px 150px;
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.14);
+}
+
 .friend-h1 {
   font-weight: lighter;
   font-family: 'Josefin Sans', sans-serif;
@@ -123,8 +140,9 @@
   border: 2px #4d4c4c91 solid;
   border-left: 7px #70be92 solid;
   margin-bottom: 30px;
-  max-width: 400px;
+  width: 430px;
   border-radius: 4px;
+  padding-bottom: 5px;
 }
 
 .friend-card:hover {
@@ -153,8 +171,10 @@
 .fa-ellipsis-h {
   position: relative;
   top: 10px;
-  left: 220px;
+  left: 255px;
+  cursor: pointer;
 }
+
 
 .span {
   font-weight: bold;
@@ -168,15 +188,17 @@
 .ghost-user {
   width: 250px;
   margin-right: 5%;
+
   padding-top: 20px;
   border-radius: 4px;
   height: 300px;
 }
 
 .ghost-friend {
-  width: 409px;
-  height: 163px;
+  width: 439px;
+  height: 170px;
   margin-bottom: 30px;
+  margin-left: -5%;
   border-radius: 4px;
 }
 
@@ -211,7 +233,7 @@
     hsla(0, 0%, 50%, 0.541)
   );
   z-index: -1;
-  transition: opacity 0.5s linear;
+  transition: opacity 0.3s linear;
   opacity: 0;
 }
 

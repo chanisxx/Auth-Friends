@@ -2,12 +2,15 @@ import React, {useState, useEffect} from 'react';
 import { axiosWithAuth } from '../utils/axiosWithAuth'
 import FriendForm from './FriendForm';
 import GhostLoad from './GhostLoad';
+import EditForm from './EditForm';
 
 const FriendsList = () => {
     const [friends, setFriends] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
    
     const [add, setAdd] = useState(false);
+    const [edit, setEdit] = useState(false);
+    const [id, setId] = useState(123)
 
     const toggleAdd = () => {
         setAdd(!add);
@@ -56,17 +59,22 @@ const FriendsList = () => {
                             <i class="far fa-user-circle fnd"></i>
                         </div>
                         <span className='content'>
-                            <i class="fas fa-ellipsis-h"></i>
+                            <i class="fas fa-ellipsis-h" 
+                            onClick={() => {setEdit(true); setId(friend.id);}}></i>
                             <h1 className='friend-h1'>{friend.name}</h1>
                             <p> age: {friend.age}</p>
                             <p> email: {friend.email}</p>
                         </span>
-                        
                     </div>
-                )
+                );
             })
         }
          </div>
+
+         <div className='edit-form'>
+            {edit ? <EditForm setEdit={setEdit} friends={friends} setFriends={setFriends} propsid={id}/> : null}
+         </div>
+         
     </div> }
     </>
     );

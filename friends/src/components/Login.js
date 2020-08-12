@@ -7,11 +7,11 @@ const Login = props => {
         {username:'', password: ''}
     );
     const [isLoading, setIsLoading] = useState(false);
-
-
+    const [error, setError] = useState(false);
+   
     const handleChanges = e => {
         setCredentials({...credentials, [e.target.name]: e.target.value});
-    }
+    };
 
     const loginSubmit = e => {
         e.preventDefault();
@@ -24,15 +24,16 @@ const Login = props => {
                 localStorage.setItem('authToken', res.data.payload);
                 props.history.push('/protected');
                 setIsLoading(false);
+                setError(false);
             })
             .catch(err => {
                 console.error('login failure! err:', err.message);
                 localStorage.removeItem('authToken');
                 setIsLoading(false);
-                alert('wrong credentials! try again.')
+                setError(true);
             })
-        }, 2500)
-    }
+        }, 2250)
+    };
 
     return (
         <div>
@@ -62,6 +63,7 @@ const Login = props => {
                       {isLoading ? 
                       <button className='btn'>LOADING <i class="fas fa-spinner fa-pulse"></i></button>
                       :<button className='btn'>SIGN IN</button>}
+                      {error ? <p className='error-login'>Wrong credentials, Try again.</p> : null}
                 </form>
             </div>
             
